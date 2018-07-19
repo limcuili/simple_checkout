@@ -20,6 +20,10 @@ describe Checkout do
     it 'is able to scan milk and output milk hash' do
       expect(subject.scan('milk')).to match_array([{milk: 1.25}])
     end
+
+    it 'recognises that an item is not in inventory' do
+      expect(subject.scan('air')).to eq []
+    end
   end
 
 
