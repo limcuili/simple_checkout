@@ -10,5 +10,17 @@ describe Checkout do
     end
   end
 
+  describe '#scan(item)' do
+    it { is_expected.to respond_to(:scan).with(1).argument }
+
+    it 'is initially an empty array' do
+      expect(subject.scan('item')).to be_an_instance_of(Array)
+    end
+
+    it 'is able to scan milk and output milk hash' do
+      expect(subject.scan('milk')).to match_array([{milk: 1.25}])
+    end
+  end
+
 
 end
